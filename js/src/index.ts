@@ -1,4 +1,4 @@
-import blocklist from './domains';
+import blocklist from './domains.ts';
 
 export interface CheckResult {
   email: string;

@@ -2,10 +2,21 @@
   "name": "burner-bouncer",
   "version": "1.0.1",
   "description": "Zero-dependency disposable/burner email detector",
-  "keywords": ["email", "disposable", "burner", "spam", "validation"],
+  "keywords": [
+    "email",
+    "disposable",
+    "burner",
+    "spam",
+    "validation"
+  ],
   "homepage": "https://github.com/grocerysushi/burner-bouncer#readme",
-  "bugs": {"url": "https://github.com/grocerysushi/burner-bouncer/issues"},
-  "repository": {"type": "git", "url": "git+https://github.com/grocerysushi/burner-bouncer.git"},
+  "bugs": {
+    "url": "https://github.com/grocerysushi/burner-bouncer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grocerysushi/burner-bouncer.git"
+  },
   "license": "MIT",
   "author": "",
   "main": "./dist/index.js",
@@ -18,7 +29,9 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "test": "jest",
@@ -30,5 +43,5 @@
     "ts-jest": "^29.1.4",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
-  }
+  },
 }

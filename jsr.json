@@ -1,0 +1,15 @@
+{
+  "name": "@grocerysushi/burner-bouncer",
+  "version": "1.1.0",
+  "description": "Zero-dependency disposable/burner email detector",
+  "license": "MIT",
+  "exports": "./js/src/index.ts",
+  "publish": {
+    "include": [
+      "js/src/index.ts",
+      "data/disposable_domains.json",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}

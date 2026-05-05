@@ -1,0 +1,39 @@
+name: Submit a disposable domain
+description: Add a domain to the blocklist
+labels: ["blocklist"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the blocklist up to date!
+        Please fill in the details below for each domain you want to add.
+
+  - type: textarea
+    id: domains
+    attributes:
+      label: Domain(s) to add
+      description: One domain per line, lowercase (e.g. `spamgourmet.com`)
+      placeholder: |
+        example-disposable.com
+        another-burner.net
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: How do you know this is disposable? Link to the service, screenshot, or description.
+      placeholder: "The site at example-disposable.com lets you create unlimited inboxes with no sign-up."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The domain is not in the blocklist already
+          required: true
+        - label: The domain is actually used for disposable/temporary email (not a legitimate provider)
+          required: true

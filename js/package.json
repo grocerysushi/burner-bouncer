@@ -1,6 +1,6 @@
 {
   "name": "burner-bouncer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Zero-dependency disposable/burner email detector",
   "keywords": [
     "email",
@@ -22,6 +22,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "burner-bouncer": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -33,7 +36,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "build": "tsup src/index.ts src/cli.ts --format cjs,esm --dts --clean",
     "test": "jest",
     "prepublishOnly": "npm run build"
   },

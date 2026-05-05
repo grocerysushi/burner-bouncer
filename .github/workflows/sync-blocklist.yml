@@ -1,0 +1,38 @@
+name: Sync Blocklist
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"  # every Monday at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync blocklist from upstream
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run sync script
+        run: node scripts/sync-blocklist.js
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet data/disposable_domains.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+      - name: Create pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: sync blocklist from upstream sources"
+          title: "data: weekly blocklist sync"
+          body: |
+            Automated weekly sync from upstream disposable-email-domain sources.
+
+            Review the diff to verify no legitimate domains were added.
+          branch: blocklist-sync
+          delete-branch: true
+          labels: blocklist

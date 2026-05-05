@@ -1,4 +1,4 @@
-import blocklist from '../../data/disposable_domains.json';
+import blocklist from './domains';
 
 export interface CheckResult {
   email: string;
@@ -13,7 +13,7 @@ export interface DnsCheckResult extends CheckResult {
   hasMx: boolean | null;
 }
 
-const BLOCKLIST: Set<string> = new Set((blocklist as string[]).map((d) => d.toLowerCase()));
+const BLOCKLIST: Set<string> = new Set(blocklist.map((d) => d.toLowerCase()));
 
 const FREE_PROVIDERS = new Set([
   'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.uk', 'yahoo.co.jp',

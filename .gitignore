@@ -3,6 +3,9 @@ node_modules/
 dist/
 *.tsbuildinfo
 
+# Generated (built from data/disposable_domains.json)
+js/src/domains.ts
+
 # Python
 __pycache__/
 *.py[cod]
